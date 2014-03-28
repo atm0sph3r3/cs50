@@ -1,0 +1,26 @@
+0.  That word is the longest possible word allowed (45 chars).
+1.  A function that returns a measure of system resources used.
+2.  16  
+3.  The structs aren't copied each time, which saves on memory.
+4.  Until the end of the file, characters are read one by one. If the
+    char is an alphabetic character or a apostrophe (not first letter), 
+    it's appended to a string and a counter is increased for each valid
+    char read. If the number of chars in a string is greater
+    than the max length, it is consumed and the next string is started. Any
+    word containing an integer is skipped, in a similiar fashion to a word
+    longer than the max string size. Once a non-alphabetic or non-integer
+    is found (space, punctuation) and the number of chars read is non-zero,
+    a null terminating character is appended to the alphabetic string and
+    then the string is spell checked.
+5.  It's easy to then determine if a non-alphabetic character is
+    encountered because reading a string using fscanf would still require
+    looping through the word to test it.
+6.  Because they are strings that should not be altered within the function,
+    this prevents the user of the functions from attempting to alter them.
+7.  Data structure (Node) is used in a trie. Each Node contains a pointer
+    to its child Node element, its sibling Node. It also contains a letter
+    and a boolean expressing whether or not that particular Node ends a word.
+8.  0.15-0.20 seconds (finding all spelling errors, no memory leaks)
+9.  Any changes made were small and didn't appear to affect the run-time.
+10. The slowest portion is the check portion but based on the configuration,
+    I'm unsure how to change it to make any significant impact.

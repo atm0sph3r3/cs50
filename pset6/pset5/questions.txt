@@ -1,0 +1,34 @@
+0.  BMP : 2^32
+    JPEG: 2^24
+    GIF : 256
+    PNG : 2^48   
+1.  GIF
+2.  An image compressed using lossless compression doesn't lose
+    any detail when uncompressed, whereas lossy compression
+    will produce only an approximate recreation of the orginal
+    when uncompressed.
+3.  JPEG
+4.  First, the first character of the filename in the directory is
+    changed to indicate that the file has been deleted and the
+    space it occupied can be reused. The file's clusters (part of the
+    sector) are reclaimed and moved to the list of free clusters.
+5.  Physically destroy the drive, degauss it, or repeatedly overwrite
+    it with zeroes or a pattern
+6.  A header file containing signed and unsigned integer types
+    with a specific width (# of bits)
+7.  If the application is ported, the size of the date types are defined.
+    Here, it allows one to define variables with a distinct size, which
+    can be matched to real-world objects.
+8.  1,4,4,2
+9.  ASCII: BM 
+10. bfSize is the total size of the file and biSize is the size of the BITMAPINFOHEADER struct.
+11. The pixels are ordered top to bottom, beginning in the left corner.
+12. biBitCount
+13. The user doesn't have permission to open the file (e.g. they're not
+    the owner and the permissions are 600).
+14. The structs have a defined size, so only one of them is read at
+    a time.
+15. 0
+16. Changes the byte position of the pointer inside the file.
+17. The current position of the pointer inside the file.s
+18. Milo Banana dun it.
