@@ -5,10 +5,10 @@
     if(isset($_GET["submit"])){
         $quote = lookup($_GET["stock"]);
         if($quote !== false){
-            render("searchResult.php", array("stock"=>$_GET["stock"], "quote"=>$_GET[$quote], "success"=>true));
+            render("stock_result.php", array("symbol"=>$quote['symbol'], "name"=>$quote['name'], "price"=>$quote['price'], "title"=>$quote['symbol']."information"));
         } else {
-            render("displaySearch.php");
+            render("stock_result.php",array("title"=>"No results to display."));
         }
     } else {
-        render("../templates/search");
+        render("stock_lookup.php",array("title"=>"Look-up Stock Price"));
     }

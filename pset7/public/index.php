@@ -1,7 +1,15 @@
 <?php
-    //Include configuration file
-    require_once("../includes/config.php");
+    // configuration
+    require("../includes/config.php"); 
+    require("../models/account_info.php");
     
-    //Start processing request
-    $entry = new Entry();
+    if(isset($_SESSION['id'])){
+        //Get porfolio information from models/account_info.php
+        $returnResults = generatePortfolio();
+        // render portfolio
+        render("portfolio.php", ["title" => "Portfolio","results"=>$returnResults]);
+    } else {
+        redirect("login_form.php");
+    }
+    
 ?>

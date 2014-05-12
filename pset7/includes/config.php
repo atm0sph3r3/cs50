@@ -19,21 +19,14 @@
 
     // enable sessions
     session_start();
-   
-    /**
-     * Autoloading function
-     */    
-    spl_autoload_register(function($class){
-        require_once("../classes/" . strtolower($class) . ".php");
-    });
 
     // require authentication for most pages
-//    if (!preg_match("{(?:login|logout|register)\.php$}", $_SERVER["PHP_SELF"]))
-//    {
-//        if (empty($_SESSION["id"]))
-//        {
-//            redirect("login");
-//        }
-//    }
+    if (!preg_match("{(?:login|logout|register)\.php$}", $_SERVER["PHP_SELF"]))
+    {
+        if (empty($_SESSION["id"]))
+        {
+            redirect("login.php");
+        }
+    }
 
 ?>
