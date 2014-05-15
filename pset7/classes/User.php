@@ -62,7 +62,7 @@ class User {
                     $lookup = lookup($sellStock);
                     $value = (float)$ownStock["shares"] * (float)$lookup["price"];
                     //Remove stock from portfolio and update balance
-                    $this->account->removeStock($this->id,$sellStock);
+                    $this->account->sell($this->id,$sellStock,$ownStock["shares"],$lookup["price"]);
                     $this->updateBalance($value);
                     $stocksSold[$sellStock] = $value;
                     break;
@@ -77,7 +77,19 @@ class User {
         query("UPDATE users SET cash = ? WHERE id = ?", ($this->cashBalance() + (float)$amount),$this->id);
     }
     
-    public function purchaseStock($stock,$shares){
-        $this->account->purchaseStock($this->id, $stock, $shares);
+    public function buy($stock,$shares,$price){
+        $this->account->buy($this->id, $stock, $shares,$price);
+    }
+    
+    public function history(){
+        return $this->account->history($this->id);
+    }
+    
+    public function info(){
+        return query("SELECT * FROM users WHERE id=?",$this->id);
+    }
+    
+    public function changePassword($newPassword){
+        query("UPDATE users SET hash=? WHERE id=?", crypt($newPassword), $this->id);
     }
 }

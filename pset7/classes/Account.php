@@ -26,11 +26,21 @@ class Account {
         return $returnResults;
     }
     
-    public function removeStock($userId, $stock){
-        query("DELETE FROM accounts WHERE id = ? AND symbol = ?",$userId, $stock);
+    public function sell($userId, $symbol,$shares,$price){
+        query("DELETE FROM accounts WHERE id = ? AND symbol = ?",$userId, $symbol);
+        $this->recordTransaction($userId, $symbol, $shares, $price, "SELL");
     }
     
-    public function purchaseStock($userId, $stock, $shares){
-        query("INSERT INTO accounts (id,symbol,shares) VALUES (?,?,?) ON DUPLICATE KEY UPDATE shares = shares + ?",$userId,$stock,$shares,$shares);
+    public function buy($userId, $symbol, $shares,$price){
+        query("INSERT INTO accounts (id,symbol,shares) VALUES (?,?,?) ON DUPLICATE KEY UPDATE shares = shares + ?",$userId,$symbol,$shares,$shares);
+        $this->recordTransaction($userId, $symbol, $shares, $price, "BUY");
+    }
+    
+    private function recordTransaction($userId,$symbol,$shares,$price,$type){
+        query("INSERT INTO transactions (id,symbol,shares,price,date,type) VALUES (?,?,?,?,?,?)",$userId,$symbol,$shares,$price,time(),$type);
+    }
+    
+    public function history($userId){
+        return $history = query("SELECT * FROM transactions WHERE id = ?", $userId);
     }
 }

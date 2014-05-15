@@ -15,8 +15,7 @@
                     //Ensure user has enough money
                     if($cashBalance >= $cost){
                         //Purchase stock and update balance
-                        $user->purchaseStock($symbol,$shares);
-                        $user->updateBalance($cost);
+                        $user->buy($symbol,$shares,$lookup["price"]);
                         render("bought_stock.php",array("title"=>"Results of purchase","results"=>array("cost"=>$cost, "symbol"=>$symbol,"price"=>$lookup["price"],"shares"=>$shares)));
                     } else {
                         apologize("You do not have enough money for this purchase.");
