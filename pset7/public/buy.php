@@ -2,16 +2,18 @@
     require("../includes/config.php");
     
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        extract($_POST);
         //Integers only
-        if(isset($_POST["shares"]) && isset($_POST["symbol"])){
-            if(preg_match("/^\d+$/",$_POST["shares"])){
-                $shares = $_POST["shares"];
-                $symbol = strtoupper($_POST["symbol"]);
-
+        if(!empty($shares) && !empty($symbol)){
+            if(preg_match("/^\d+$/",$shares)){
+                $symbol = strtoupper($symbol);
+                
+                //Lookup symbol
                 $lookup = lookup($symbol);
                 if($lookup !== FALSE){
+                    extract($lookup);
                     $cashBalance = $user->cashBalance();
-                    $cost = (float)$lookup["price"] * (int)$shares;
+                    $cost = (float)$price * (int)$shares;
                     //Ensure user has enough money
                     if($cashBalance >= $cost){
                         //Purchase stock and update balance

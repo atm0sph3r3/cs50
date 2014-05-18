@@ -2,11 +2,19 @@
 if(isset($results)):
     extract($results);
 ?> 
-<div>
-    Stock purchased: <?= $symbol ?>
-    Shares purchased: <?= $shares ?>
-    Share price: <?= numberFormat($price) ?>
-    Total cost: <?= numberFormat($cost) ?>
+<div id="purchase">
+    <div>
+        Stock purchased: <?= $symbol ?>
+    </div>
+    <div>
+        Shares purchased: <?= $shares ?>
+    </div>
+    <div>
+        Share price: <?= numberFormat($price) ?>
+    </div>
+    <div>
+        Total cost: <?= numberFormat($cost) ?>
+    </div>
 </div>
 <?
 endif;

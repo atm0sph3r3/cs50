@@ -21,11 +21,23 @@
     </head>
 
     <body>
-
         <div class="container">
 
             <div id="top">
                 <a href="/"><img alt="C$50 Finance" src="/img/logo.gif"/></a>
-            </div>
 
+   
+                <? if(isset($_SESSION['id'])): ?>
+                <nav id="navigation">
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="buy.php">Purchase Stock</a></li>
+                        <li><a href="sell.php">Sell Stock</a></li>
+                        <li><a href="history.php">View History</a></li>
+                        <li><a href="settings.php">Account Settings</a></li>
+                        <li><a href="logout.php">Logout</a></li>
+                    </ul>
+                </nav>
+                <? endif; ?>
+            </div>
             <div id="middle">

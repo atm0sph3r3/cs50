@@ -15,6 +15,10 @@
     text-align: center;
 }
 
+#middle {
+    clear:both;
+}
+
 #middle .form-control
 {
     /* center form controls */
@@ -31,4 +35,60 @@
 
     /* surround with whitespace */
     margin: 20px;
+}
+
+tr{
+    border:solid 1px;
+    border-collapse: collapse;
+}
+
+td,th {
+    border:solid 1px;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+    width:100px;
+}
+
+table {
+    margin: 0 auto 0 auto;
+}
+
+#portfolio {
+    margin: 0 auto 10px auto;
+    text-align: left;
+}
+
+#navigation {
+    width:960px;
+    margin:0 auto 0 auto;
+    height:30px;
+    padding: 5px 0 5px 0;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+#navigation ul{
+    list-style-type: none;
+    padding:0;
+    margin: 0 auto 0 auto;
+}
+
+#navigation li {
+    float:left;
+}
+
+#navigation a{
+    text-decoration: none;
+    color:black;
+    width:160px;
+    display:block;
+}
+
+#navigation a:hover{
+    color: grey;
+}
+
+#navigation a:selected{
+    color: black;
 }

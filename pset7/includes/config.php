@@ -17,7 +17,7 @@
     require("constants.php");
     require("functions.php");
     require("../classes/User.php");
-
+    
     // enable sessions
     session_start();
     

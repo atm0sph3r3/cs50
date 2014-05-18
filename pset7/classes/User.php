@@ -74,11 +74,12 @@ class User {
     }
     
     public function updateBalance($amount){
-        query("UPDATE users SET cash = ? WHERE id = ?", ($this->cashBalance() + (float)$amount),$this->id);
+        query("UPDATE users SET cash = cash + ? WHERE id = ?", ((float)$amount)*-1, $this->id);
     }
     
     public function buy($stock,$shares,$price){
         $this->account->buy($this->id, $stock, $shares,$price);
+        $this->updateBalance(($shares * $price));
     }
     
     public function history(){
