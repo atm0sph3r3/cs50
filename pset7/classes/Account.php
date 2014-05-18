@@ -11,13 +11,15 @@ class Account {
         $returnResults = array();
         $balance = 0;
         foreach($results as $result){
+            extract($result);
             $temp = array();
-            $temp["symbol"] = $result["symbol"];
-            $temp["shares"] = $result["shares"];
-            $lookupResults  = lookup($result["symbol"]);
-            $temp["name"] = $lookupResults["name"];
-            $temp["price"] = $lookupResults["price"];
-            $temp["value"] = (float)$lookupResults["price"] * (float)$result["shares"];
+            $temp["symbol"] = $symbol;
+            $temp["shares"] = $shares;
+            $lookupResults  = lookup($symbol);
+            extract($lookupResults);
+            $temp["name"] = $name;
+            $temp["price"] = $price;
+            $temp["value"] = (float)$price * (float)$shares;
             $balance += $temp["value"];
             array_push($returnResults, $temp);
         }

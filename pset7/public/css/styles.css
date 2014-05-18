@@ -47,11 +47,11 @@ td,th {
     border-collapse: collapse;
     text-align: center;
     padding: 5px;
-    width:100px;
+    width:200px;
 }
 
 table {
-    margin: 0 auto 0 auto;
+    margin: 0 auto 10px auto;
 }
 
 #portfolio {
@@ -61,7 +61,7 @@ table {
 
 #navigation {
     width:960px;
-    margin:0 auto 0 auto;
+    margin:0 auto 10px auto;
     height:30px;
     padding: 5px 0 5px 0;
     border-top: solid 1px;
@@ -81,7 +81,7 @@ table {
 #navigation a{
     text-decoration: none;
     color:black;
-    width:160px;
+    width:137px;
     display:block;
 }
 

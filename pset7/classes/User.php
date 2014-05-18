@@ -58,11 +58,13 @@ class User {
         //Ensure user actually owns the stock that they want to sell
         while($sellStock = current($stocksToSell)){
             foreach($portfolio as $ownStock){
-                if($ownStock['symbol'] == $sellStock){
+                extract($ownStock);
+                if($symbol == $sellStock){
                     $lookup = lookup($sellStock);
-                    $value = (float)$ownStock["shares"] * (float)$lookup["price"];
+                    extract($lookup);
+                    $value = (float)$shares * (float)$price;
                     //Remove stock from portfolio and update balance
-                    $this->account->sell($this->id,$sellStock,$ownStock["shares"],$lookup["price"]);
+                    $this->account->sell($this->id,$sellStock,$shares,$price);
                     $this->updateBalance($value);
                     $stocksSold[$sellStock] = $value;
                     break;
@@ -74,12 +76,12 @@ class User {
     }
     
     public function updateBalance($amount){
-        query("UPDATE users SET cash = cash + ? WHERE id = ?", ((float)$amount)*-1, $this->id);
+        query("UPDATE users SET cash = cash + ? WHERE id = ?", $amount, $this->id);
     }
     
     public function buy($stock,$shares,$price){
         $this->account->buy($this->id, $stock, $shares,$price);
-        $this->updateBalance(($shares * $price));
+        $this->updateBalance(($shares * $price) * -1);
     }
     
     public function history(){

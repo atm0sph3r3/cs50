@@ -31,6 +31,7 @@
                 <nav id="navigation">
                     <ul>
                         <li><a href="index.php">Home</a></li>
+                        <li><a href="quote.php">Search</a></li>
                         <li><a href="buy.php">Purchase Stock</a></li>
                         <li><a href="sell.php">Sell Stock</a></li>
                         <li><a href="history.php">View History</a></li>

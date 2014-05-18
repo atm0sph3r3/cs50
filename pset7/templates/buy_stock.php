@@ -1,5 +1,5 @@
 <div id="purchaseStock">
-    <h2>Purchase Additional Stock</h2>
+    <h2>Purchase Stock</h2>
     <p>Current cash balance: $<?= numberFormat(User::getUser()->cashBalance()) ?></p>
     <form action="buy.php" method="POST">
         <fieldset>

@@ -1,8 +1,10 @@
 <?
 if(isset($results) && count($results) > 0): 
 ?>
+<h2>Sell Stock</h2>
     <table>
         <tr>
+            <th>Sell</th>
             <th>Name</th>
             <th>Symbol</th>
             <th>Shares</th>
@@ -29,8 +31,8 @@ if(isset($results) && count($results) > 0):
                 ?>
     </table>
     <div>
-        <input type="submit">
-        <input type="reset">
+        <button type="submit" class="btn btn-default">Sell Stock</button>
+        <button type="reset" class="btn btn-default">Reset</button>
     </div>
             </fieldset>
         </form>

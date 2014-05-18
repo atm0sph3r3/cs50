@@ -11,12 +11,13 @@ if($results !== FALSE):
         </tr>
 <?
     foreach($results as $transaction){
+        extract($transaction);
         print("<tr>");
-        print("<td>".date("r",$transaction["date"])."</td>");
-        print("<td>{$transaction["type"]}</td>");
-        print("<td>{$transaction["symbol"]}</td");
-        print("<td>{$transaction["shares"]}</td>");
-        print("<td>".numberFormat($transaction["price"])."</td>");
+        print("<td>".date("r",$date)."</td>");
+        print("<td>{$type}</td>");
+        print("<td>{$symbol}</td>");
+        print("<td>{$shares}</td>");
+        print("<td>".numberFormat($price)."</td>");
         print("</tr>");
     }
     print("</table>");
