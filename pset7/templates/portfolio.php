@@ -1,8 +1,8 @@
 <?
-if(isset($results) && count($results) > 0):
+if(isset($results) && count($results) > 1):
 ?>  
     <div id="portfolio">
-        <table>
+        <table class="table table-bordered table-hover">
             <tr>
                 <th>Name</th>
                 <th>Symbol</th>
@@ -10,6 +10,7 @@ if(isset($results) && count($results) > 0):
                 <th>Current Price (USD)</th>
                 <th>Current Value (USD)</th>
             </tr>
+            <tbody class="table-striped">
     <?
         while($result = current($results)){
             if(key($results) !== "balance"){
@@ -24,12 +25,11 @@ if(isset($results) && count($results) > 0):
             next($results);
         }
         ?>
+            </tbody>
         </table>
     </div>
-    <div>Total portfolio value: <?= numberFormat($results["balance"]) ?> </div>
-    <div>Total cash available: <?= numberFormat($cashBalance) ?></div>
 <?
-else:
-    print("<div>No stocks to display.");
 endif;
 ?>
+<div>Total portfolio value: <?= numberFormat($results["balance"]) ?> </div>
+<div>Total cash available: <?= numberFormat($cashBalance) ?></div>

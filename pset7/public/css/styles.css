@@ -37,23 +37,6 @@
     margin: 20px;
 }
 
-tr{
-    border:solid 1px;
-    border-collapse: collapse;
-}
-
-td,th {
-    border:solid 1px;
-    border-collapse: collapse;
-    text-align: center;
-    padding: 5px;
-    width:200px;
-}
-
-table {
-    margin: 0 auto 10px auto;
-}
-
 #portfolio {
     margin: 0 auto 10px auto;
     text-align: left;

@@ -1,8 +1,8 @@
 <?
-if(isset($results) && count($results) > 0): 
+if(isset($results) && count($results) > 1): 
 ?>
 <h2>Sell Stock</h2>
-    <table>
+    <table class="table table-bordered table-hover">
         <tr>
             <th>Sell</th>
             <th>Name</th>
@@ -11,7 +11,7 @@ if(isset($results) && count($results) > 0):
             <th>Current Price</th>
             <th>Current Value</th>
         </tr>
-
+        <tbody class="table-striped">
         <form method="POST" action="sell.php">
             <fieldset>
                 <?
@@ -29,6 +29,7 @@ if(isset($results) && count($results) > 0):
                     next($results);
                 }
                 ?>
+            </tbody>
     </table>
     <div>
         <button type="submit" class="btn btn-default">Sell Stock</button>
@@ -38,7 +39,7 @@ if(isset($results) && count($results) > 0):
         </form>
 <? else : ?>
     <div>
-        No results to display
+        No stocks to sell. Consider buying some!
     </div>
 <? endif;
 

@@ -5,7 +5,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" maxlength="10" autofocus name="symbol" placeholder="Stock Symbol">
             </div>
-            <div clas="form-group">
+            <div class="form-group">
                <button type="submit" class="btn btn-default">Look-up Stock</button>
                <button type="reset" class="btn btn-default">Reset</button>
             </div>

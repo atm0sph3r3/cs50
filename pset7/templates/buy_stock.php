@@ -9,7 +9,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" maxlength="10" name="shares" placeholder="Number of Shares">
             </div>
-            <div clas="form-group">
+            <div class="form-group">
                <button type="submit" class="btn btn-default">Purchase Stock</button>
                <button type="reset" class="btn btn-default">Reset</button>
             </div>

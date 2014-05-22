@@ -1,7 +1,7 @@
 <?
 if($results !== FALSE):
 ?>
-    <table>
+    <table class="table table-bordered table-hover">
         <tr>
             <th>Date</th>
             <th>Transaction Type</th>
@@ -9,6 +9,7 @@ if($results !== FALSE):
             <th>Shares</th>
             <th>Price</th>
         </tr>
+        <tbody class="table-striped">
 <?
     foreach($results as $transaction){
         extract($transaction);
@@ -20,6 +21,7 @@ if($results !== FALSE):
         print("<td>".numberFormat($price)."</td>");
         print("</tr>");
     }
+    print("</tbody>");
     print("</table>");
     endif;
 ?>
